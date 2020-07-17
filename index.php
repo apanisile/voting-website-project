@@ -15,7 +15,7 @@ $password = "";
 $dbname = "myDB";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // sql to create table
-$sql = "CREATE TABLE MyGuests (
+$sql = "CREATE TABLE Users (
 matric INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 fullname VARCHAR(30) NOT NULL,
 email VARCHAR(50),
