@@ -3,206 +3,211 @@
             <link rel="stylesheet" type="text/css" href="css/style.css">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <style type="text/css">
-             body {font-family: Arial, Helvetica, sans-serif;}
-            * {box-sizing: border-box}
+                body {font-family: Arial, Helvetica, sans-serif;}
+                * {box-sizing: border-box}
 
-            /* Full-width input fields */
-            input[type=text], input[type=password] {
-                width: 100%;
-                padding: 15px;
-                margin: 5px 0 22px 0;
-                display: inline-block;
-                border: none;
-                background: #f1f1f1;
-            }
-
-            input[type=text]:focus, input[type=password]:focus {
-                background-color: #ddd;
-                outline: none;
-            }
-
-            hr {
-                border: 1px solid #f1f1f1;
-                margin-bottom: 25px;
-            }
-
-            /* Set a style for all buttons */
-            button {
-                background-color: #4CAF50;
-                color: white;
-                padding: 14px 20px;
-                margin: 8px 0;
-                border: none;
-                cursor: pointer;
-                width: 100%;
-                opacity: 0.9;
-            }
-
-            button:hover {
-                opacity:1;
-            }
-
-            /* Extra styles for the cancel button */
-            .cancelbtn {
-                padding: 14px 20px;
-                background-color: #f44336;
-            }
-
-            /* Float cancel and signup buttons and add an equal width */
-            .cancelbtn, .signupbtn {
-            float: left;
-            width: 50%;
-            }
-
-            /* Add padding to container elements */
-            .container {
-                padding: 16px;
-            }
-
-            /* Clear floats */
-            .clearfix::after {
-                content: "";
-                clear: both;
-                display: table;
-            }
-
-            /* Change styles for cancel button and signup button on extra small screens */
-            @media screen and (max-width: 300px) {
-                .cancelbtn, .signupbtn {
-                width: 100%;
+                /* Full-width input fields */
+                input[type=text], input[type=password] {
+                    width: 100%;
+                    padding: 15px;
+                    margin: 5px 0 22px 0;
+                    display: inline-block;
+                    border: none;
+                    background: #f1f1f1;
                 }
-            }
 
-            input[type=text], select {
-                width: 100%;
-                padding: 12px 20px;
-                margin: 8px 0;
-                display: inline-block;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-            }
-            /* The message box is shown when the user clicks on the password field */
-            #message {
+                input[type=text]:focus, input[type=password]:focus {
+                    background-color: #ddd;
+                    outline: none;
+                }
+
+                hr {
+                    border: 1px solid #f1f1f1;
+                    margin-bottom: 25px;
+                }
+
+                /* Set a style for all buttons */
+                button {
+                    background-color: #4CAF50;
+                    color: white;
+                    padding: 14px 20px;
+                    margin: 8px 0;
+                    border: none;
+                    cursor: pointer;
+                    width: 100%;
+                    opacity: 0.9;
+                }
+
+                button:hover {
+                    opacity:1;
+                }
+
+                /* Extra styles for the cancel button */
+                .cancelbtn {
+                    padding: 14px 20px;
+                    background-color: #f44336;
+                }
+
+                /* Float cancel and signup buttons and add an equal width */
+                .cancelbtn, .signupbtn {
+                float: left;
+                width: 50%;
+                }
+
+                /* Add padding to container elements */
+                .container {
+                    padding: 16px;
+                }
+
+                /* Clear floats */
+                .clearfix::after {
+                    content: "";
+                    clear: both;
+                    display: table;
+                }
+
+                /* Change styles for cancel button and signup button on extra small screens */
+                @media screen and (max-width: 300px) {
+                    .cancelbtn, .signupbtn {
+                    width: 100%;
+                    }
+                }
+
+                input[type=text], select {
+                    width: 100%;
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                }
+                /* The message box is shown when the user clicks on the password field */
+                #message {
+                            display:none;
+                            background: #f1f1f1;
+                            color: #000;
+                            position: relative;
+                            padding: 20px;
+                            margin-top: 10px;
+                }
+
+                #message p {
+                            padding: 10px 35px;
+                            font-size: 18px;
+                }
+
+                /* Add a green text color and a checkmark when the requirements are right */
+                        .valid {
+                            color: green;
+                }
+
+                .valid:before {
+                            position: relative;
+                            left: -35px;
+                            content: "✔";
+                }
+
+                /* Add a red text color and an "x" when the requirements are wrong */
+                        .invalid {
+                            color: red;
+                }
+
+                .invalid:before {
+                            position: relative;
+                            left: -35px;
+                            content: "✖";
+                }              
+                <!--/* Style the container for inputs */
+                    .container {
+                        background-color: grey;
+                        padding: 20px;
+                        border-radius: 25px;
+                        padding: 20px;
+                    }
+
+                    /* The message box is shown when the user clicks on the password field */
+                    #message {
                         display:none;
                         background: #f1f1f1;
                         color: #000;
                         position: relative;
                         padding: 20px;
                         margin-top: 10px;
-            }
+                    }
 
-            #message p {
+                    #message p {
                         padding: 10px 35px;
                         font-size: 18px;
-            }
+                    }
 
-            /* Add a green text color and a checkmark when the requirements are right */
+                    /* Add a green text color and a checkmark when the requirements are right */
                     .valid {
                         color: green;
-            }
+                    }
 
-            .valid:before {
+                    .valid:before {
                         position: relative;
                         left: -35px;
                         content: "✔";
-            }
+                    }
 
-            /* Add a red text color and an "x" when the requirements are wrong */
+                    /* Add a red text color and an "x" when the requirements are wrong */
                     .invalid {
                         color: red;
-            }
+                    }
 
-            .invalid:before {
+                    .invalid:before {
                         position: relative;
                         left: -35px;
                         content: "✖";
-            }              
-            <!--/* Style the container for inputs */
-                .container {
-                    background-color: grey;
-                    padding: 20px;
-                    border-radius: 25px;
-                    padding: 20px;
+                    }  
+
+                    .button {
+                        display: inline-block;
+                        border-radius: 4px;
+                        background-color: yellow;
+                        border: none;
+                        color: black;
+                        text-align: center;
+                        font-size: 28px;
+                        padding: 20px;
+                        width: 200px;
+                        transition: all 0.5s;
+                        cursor: pointer;
+                        margin: 5px;
+                    }
+
+                    .button span {
+                        cursor: pointer;
+                        display: inline-block;
+                        position: relative;
+                        transition: 0.5s;
+                    }
+
+                    .button span:after {
+                        content: '\00bb';
+                        position: absolute;
+                        opacity: 0;
+                        top: 0;
+                        right: -20px;
+                        transition: 0.5s;
+                    }
+
+                    .button:hover span {
+                        padding-right: 25px;
+                    }
+
+                    .button:hover span:after {
+                        opacity: 1;
+                        right: 0;
+                    } 
+            </style>
+            <script>
+                function openWin() {
+                window.open("vote.html");
                 }
-
-                /* The message box is shown when the user clicks on the password field */
-                #message {
-                    display:none;
-                    background: #f1f1f1;
-                    color: #000;
-                    position: relative;
-                    padding: 20px;
-                    margin-top: 10px;
-                }
-
-                #message p {
-                    padding: 10px 35px;
-                    font-size: 18px;
-                }
-
-                /* Add a green text color and a checkmark when the requirements are right */
-                .valid {
-                    color: green;
-                }
-
-                .valid:before {
-                    position: relative;
-                    left: -35px;
-                    content: "✔";
-                }
-
-                /* Add a red text color and an "x" when the requirements are wrong */
-                .invalid {
-                    color: red;
-                }
-
-                .invalid:before {
-                    position: relative;
-                    left: -35px;
-                    content: "✖";
-                }  
-
-                .button {
-                    display: inline-block;
-                    border-radius: 4px;
-                    background-color: yellow;
-                    border: none;
-                    color: black;
-                    text-align: center;
-                    font-size: 28px;
-                    padding: 20px;
-                    width: 200px;
-                    transition: all 0.5s;
-                    cursor: pointer;
-                    margin: 5px;
-                }
-
-                .button span {
-                    cursor: pointer;
-                    display: inline-block;
-                    position: relative;
-                    transition: 0.5s;
-                }
-
-                .button span:after {
-                    content: '\00bb';
-                    position: absolute;
-                    opacity: 0;
-                    top: 0;
-                    right: -20px;
-                    transition: 0.5s;
-                }
-
-                .button:hover span {
-                    padding-right: 25px;
-                }
-
-                .button:hover span:after {
-                    opacity: 1;
-                    right: 0;
-                }   -->
-        </style>
+            </script>
         </head>
         <body>
             <h1>
@@ -234,7 +239,7 @@
                 <div class="container">
                     <h3>ID Validation</h3>
                     <p>Input your login details</p>
-                <form action="login.php">
+                <form action="login.php" method="post">
                     <label for="usrname">Username</label>
                     <input type="text" id="usrname" name="usrname" required>
 
@@ -308,7 +313,7 @@
                         }
                     </script>
 
-                    <button class="button" style="vertical-align:middle"><span>Submit </span></button>
+                    <button class="button" style="vertical-align:middle" onclick="openWin"><span>Submit </span></button>
                 </form>
             </div>
 
