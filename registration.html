@@ -1,8 +1,6 @@
 <html>
     <head>
         <link href="css/style.css" rel="stylesheet" type="text/css" />
-        <script language="signin.php" src="signin.php">
-        </script>
         <style>
             body {font-family: Arial, Helvetica, sans-serif;}
             * {box-sizing: border-box}
@@ -122,6 +120,7 @@
         </style>
     </head>
     <body>
+      
     <h1>
         <center> 
             <a>
@@ -141,7 +140,7 @@
                     <meta name="viewport" content="width=device-width, initial-scale=1">
         
 
-<form method="post" action="signin.php">
+<form method="post" name="myemailform" action="signin.php">
   <div class="container">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
@@ -183,8 +182,7 @@
           <p id="length" class="invalid">Minimum <b>8 characters</b></p>
         </div>
                         
-        <script>
-            var myInput = document.getElementById("psw");
+        <script> var myInput = document.getElementById("psw");
             var letter = document.getElementById("letter");
             var capital = document.getElementById("capital");
             var number = document.getElementById("number");
@@ -241,13 +239,14 @@
                 length.classList.add("invalid");
               }
             }
+            
         </script>
 
 
     <label for="psw-repeat">
         <b>Repeat Password</b>
     </label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+    <input id="psw" type="password" placeholder="Repeat Password" name="psw-repeat" required>
     
     <label>
       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
@@ -257,8 +256,27 @@
 
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit" class="signupbtn">Sign Up</button>
+      <button type="submit" class="form-submit-button-text" name='submit' value="SUBMIT"><a href="vote.html" target="_blank">Sign Up</a></button>
     </div>
+     <script>
+            $("#contact-form").on('submit',function(event) {
+                event.preventDefault(); // to prevent default page reloading
+                var dataString = $(this).serialize(); // to get the form data
+                $.ajax({
+                    type: "POST",
+                    url: "signin.php",
+                    data: dataString,
+                    success: function(data){
+                        $('#contact-form')[0].reset(); // to reset form data
+                    }
+                }).done(function(data){
+                    setTimeout(function () {
+                        $('.contactform-messages').addClass('active');
+                    }, 500);
+                });
+            });
+        </script>
+
   </div>
 </form>
 
