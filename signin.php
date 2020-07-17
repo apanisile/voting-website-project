@@ -43,6 +43,12 @@
       $gender = test_input($_POST["gender"]);
     }
 
+    if (empty($_POST["psw2"])) {
+      $genderErr = "Please repeat your password";
+    } else {
+      $psw2 = test_input($_POST["psw-repeat"]);
+    }
+
   }
 
   function test_input($data) {
@@ -53,17 +59,26 @@
   }
 ?>
 
-
 <?php
-echo "<h2>Your Input:</h2>";
-echo $name;
-echo "<br>";
-echo $email;
-echo "<br>";
-echo $department;
-echo "<br>";
-echo $matric;
-echo "<br>";
-
-echo $gender;
+if(isset($_POST['submit'])){
+  //Fetching variables of the form which travels in the URL
+  $name = $_POST['name'];
+  $gender =$_POST['gender'];
+  $department = $_POST['department'];
+  $matric = $_POST['matric'];
+  $email = $_POST['email'];
+	#$psw = $_POST['password']
+  if($name !='' && $gender != '' && $department != '' && $matric != '' && $email != '')
+      {
+          //  To redirect form on a particular page
+          header("vote.html");
+        } else {
+          ?>
+          <span>
+          <?php echo "Please fill all fields.....!!!!!!!!!!!!";?>
+        </span>
+        <?php
+        }
+      
+  }
 ?>
