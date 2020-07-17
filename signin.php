@@ -1,13 +1,27 @@
 <?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "myDB";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+
   // define variables and set to empty values
   $nameErr = $emailErr = $genderErr = $departmentErr = $matric = "";
   $name = $email = $gender = $comment = $department = $matric = "";
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["name"])) {
+    if (empty($_POST["usrname"])) {
       $nameErr = "Name is required";
     } else {
-      $name = test_input($_POST["name"]);
+      $name = test_input($_POST["usrname"]);
       // check if name only contains letters and whitespace
       if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
       $nameErr = "Only letters and white space allowed";
@@ -62,13 +76,13 @@
 <?php
 if(isset($_POST['submit'])){
   //Fetching variables of the form which travels in the URL
-  $name = $_POST['name'];
+  $usrname = $_POST['usrname'];
   $gender =$_POST['gender'];
   $department = $_POST['department'];
   $matric = $_POST['matric'];
   $email = $_POST['email'];
 	#$psw = $_POST['password']
-  if($name !='' && $gender != '' && $department != '' && $matric != '' && $email != '')
+  if($usrname !='' && $gender != '' && $department != '' && $matric != '' && $email != '')
       {
           //  To redirect form on a particular page
           header("vote.html");
@@ -80,5 +94,14 @@ if(isset($_POST['submit'])){
         <?php
         }
       
-  }
+}
+
+$sql = "INSERT INTO MyGuests (matric, fullname, email)
+VALUES ($matric, $usrname, $email)";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 ?>

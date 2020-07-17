@@ -1,5 +1,5 @@
-#PHP file to create a database and to connect into the database
 <?php
+//PHP file to create a database and to connect into the database
 $servername = "localhost";
 $user = "root";
 $pass = "";
@@ -18,16 +18,9 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error creating database: " . $conn->error;
 }
-
-$conn->close();
 ?>
 
+
 <?php
-$user = 'root';
-$pass = '';
-$db = 'mysql';
-
-$db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect");
-
 echo"Great Work!!!";
 ?>
