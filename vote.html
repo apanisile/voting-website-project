@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <link href="css/style1.css" rel="stylesheet" type="text/css" />
+        <?php
+            $servername = "localhost";
+            $username = "username";
+            $password = "password";
+
+            // Create connection
+            $conn = new mysqli($servername, $username, $password);
+
+            //Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+            echo "Connected successfully";
+
+            spl = "CREATE DATABASE myDB";
+            if ($conn->query($sql)=== TRUE){
+                echo "Database created successfully";
+            } else {
+                        echo "Error creating successfully";
+            }
+            
+             $conn -> close();    
+        ?>
+    </head>
+    <body>
+
+        <h1>
+                <center>
+                    <a>
+                        <img src = "image/sitelogo.jpeg" alt="site logo">
+                    </a>
+                </center>
+                <br>
+                <center>
+                    <b>
+                        <font color = "white" size="6">ADELEKE UNIVERSITY VOTING PLATFORM
+                        </font>
+                    </b>
+                    </center>
+                    <br>
+            <h1>
+                PLACE YOUR VOTES
+            </h1>
+            <br>
+        </h1>
+        <div>
+            President: <br><br>
+            Apanisile Ifeoluwa<input type="radio" name="President" value="Ifeoluwa" >
+            Ademola Emma<input type="radio" name="President" value="Emma" >
+            Anu spidy<input type="radio" name="President" value="spidy" >
+            <br><br>
+            Vice President: <br><br>
+            Dami<input type="radio" name="vp" value="Dami" >
+            Rebecca<input type="radio" name="vp" value="Rebecca" >
+            David<input type="radio" name="vp" value="David" >
+            <br><br>
+            Social Director: <br><br>
+            Abbey<input type="radio" name="sd" value="Abbey" >
+            Oge<input type="radio" name="sd" value="Oge" >
+            Labile<input type="radio" name="sd" value="Labile" >
+            <br><br>
+            Treasurer: <br><br>
+            Lawal<input type="radio" name="Treasurer" value="lawal" >
+            Seyi<input type="radio" name="Treasurer" value="Seyi" >
+            Ige<input type="radio" name="Treasurer" value="Ige" >
+            <br><br>
+            Sports Director: <br><br>
+            Alala<input type="radio" name="sport" value="Alala" >
+            Abiodun<input type="radio" name="sport" value="Abiodun" >
+            Tega<input type="radio" name="sport" value="Tega" >
+            <br><br>
+            <a href="end.html"><b>SUBMIT</b></a>
+        </div>
+       
+        
+ </body>
+ </html>

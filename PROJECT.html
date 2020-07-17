@@ -1,0 +1,330 @@
+<html>
+        <head>
+            <link rel="stylesheet" type="text/css" href="css/style.css">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style type="text/css">
+             body {font-family: Arial, Helvetica, sans-serif;}
+            * {box-sizing: border-box}
+
+            /* Full-width input fields */
+            input[type=text], input[type=password] {
+                width: 100%;
+                padding: 15px;
+                margin: 5px 0 22px 0;
+                display: inline-block;
+                border: none;
+                background: #f1f1f1;
+            }
+
+            input[type=text]:focus, input[type=password]:focus {
+                background-color: #ddd;
+                outline: none;
+            }
+
+            hr {
+                border: 1px solid #f1f1f1;
+                margin-bottom: 25px;
+            }
+
+            /* Set a style for all buttons */
+            button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                opacity: 0.9;
+            }
+
+            button:hover {
+                opacity:1;
+            }
+
+            /* Extra styles for the cancel button */
+            .cancelbtn {
+                padding: 14px 20px;
+                background-color: #f44336;
+            }
+
+            /* Float cancel and signup buttons and add an equal width */
+            .cancelbtn, .signupbtn {
+            float: left;
+            width: 50%;
+            }
+
+            /* Add padding to container elements */
+            .container {
+                padding: 16px;
+            }
+
+            /* Clear floats */
+            .clearfix::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+            /* Change styles for cancel button and signup button on extra small screens */
+            @media screen and (max-width: 300px) {
+                .cancelbtn, .signupbtn {
+                width: 100%;
+                }
+            }
+
+            input[type=text], select {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            /* The message box is shown when the user clicks on the password field */
+            #message {
+                        display:none;
+                        background: #f1f1f1;
+                        color: #000;
+                        position: relative;
+                        padding: 20px;
+                        margin-top: 10px;
+            }
+
+            #message p {
+                        padding: 10px 35px;
+                        font-size: 18px;
+            }
+
+            /* Add a green text color and a checkmark when the requirements are right */
+                    .valid {
+                        color: green;
+            }
+
+            .valid:before {
+                        position: relative;
+                        left: -35px;
+                        content: "✔";
+            }
+
+            /* Add a red text color and an "x" when the requirements are wrong */
+                    .invalid {
+                        color: red;
+            }
+
+            .invalid:before {
+                        position: relative;
+                        left: -35px;
+                        content: "✖";
+            }              
+            <!--/* Style the container for inputs */
+                .container {
+                    background-color: grey;
+                    padding: 20px;
+                    border-radius: 25px;
+                    padding: 20px;
+                }
+
+                /* The message box is shown when the user clicks on the password field */
+                #message {
+                    display:none;
+                    background: #f1f1f1;
+                    color: #000;
+                    position: relative;
+                    padding: 20px;
+                    margin-top: 10px;
+                }
+
+                #message p {
+                    padding: 10px 35px;
+                    font-size: 18px;
+                }
+
+                /* Add a green text color and a checkmark when the requirements are right */
+                .valid {
+                    color: green;
+                }
+
+                .valid:before {
+                    position: relative;
+                    left: -35px;
+                    content: "✔";
+                }
+
+                /* Add a red text color and an "x" when the requirements are wrong */
+                .invalid {
+                    color: red;
+                }
+
+                .invalid:before {
+                    position: relative;
+                    left: -35px;
+                    content: "✖";
+                }  
+
+                .button {
+                    display: inline-block;
+                    border-radius: 4px;
+                    background-color: yellow;
+                    border: none;
+                    color: black;
+                    text-align: center;
+                    font-size: 28px;
+                    padding: 20px;
+                    width: 200px;
+                    transition: all 0.5s;
+                    cursor: pointer;
+                    margin: 5px;
+                }
+
+                .button span {
+                    cursor: pointer;
+                    display: inline-block;
+                    position: relative;
+                    transition: 0.5s;
+                }
+
+                .button span:after {
+                    content: '\00bb';
+                    position: absolute;
+                    opacity: 0;
+                    top: 0;
+                    right: -20px;
+                    transition: 0.5s;
+                }
+
+                .button:hover span {
+                    padding-right: 25px;
+                }
+
+                .button:hover span:after {
+                    opacity: 1;
+                    right: 0;
+                }   -->
+        </style>
+        </head>
+        <body>
+            <h1>
+                <center> 
+                    <a>
+                        <img src = "image/sitelogo.jpeg" alt="site logo">
+                    </a>
+                </center>
+                <br>
+                <center>
+                    <b>
+                        <font color = "white" size="6">ADELEKE UNIVERSITY VOTING PLATFORM</font>
+                    </b>
+                </center>
+                <br>
+                <br> 
+            </h1>
+            <div id="page">
+                <div id="header">
+                    <h1>Student Login</h1>
+                        <div class="news">
+                            <marquee>MAKE THE RIGHT CHOICE AND MAKE THE UNIVERSITY A BETTER PLACE </marquee>
+                        </div>
+                </div>
+                <div id="container">
+                    <table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="blue">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+                <div class="container">
+                    <h3>ID Validation</h3>
+                    <p>Input your login details</p>
+                <form action="login.php">
+                    <label for="usrname">Username</label>
+                    <input type="text" id="usrname" name="usrname" required>
+
+                    <label for="psw">Password</label>
+                    <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                    
+                    <div id="message">
+                        <h3>Password must contain the following:</h3>
+                        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                        <p id="number" class="invalid">A <b>number</b></p>
+                        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                    </div>
+                    <script>
+                        var myInput = document.getElementById("psw");
+                        var letter = document.getElementById("letter");
+                        var capital = document.getElementById("capital");
+                        var number = document.getElementById("number");
+                        var length = document.getElementById("length");
+
+                        // When the user clicks on the password field, show the message box
+                        myInput.onfocus = function() {
+                            document.getElementById("message").style.display = "block";
+                        }
+
+                        // When the user clicks outside of the password field, hide the message box
+                        myInput.onblur = function() {
+                            document.getElementById("message").style.display = "none";
+                        }
+
+                        // When the user starts to type something inside the password field
+                        myInput.onkeyup = function() {
+                        // Validate lowercase letters
+                        var lowerCaseLetters = /[a-z]/g;
+                        if(myInput.value.match(lowerCaseLetters)) {  
+                            letter.classList.remove("invalid");
+                            letter.classList.add("valid");
+                        } else {
+                            letter.classList.remove("valid");
+                            letter.classList.add("invalid");
+                        }
+                        
+                        // Validate capital letters
+                        var upperCaseLetters = /[A-Z]/g;
+                        if(myInput.value.match(upperCaseLetters)) {  
+                            capital.classList.remove("invalid");
+                            capital.classList.add("valid");
+                        } else {
+                            capital.classList.remove("valid");
+                            capital.classList.add("invalid");
+                        }
+
+                        // Validate numbers
+                        var numbers = /[0-9]/g;
+                        if(myInput.value.match(numbers)) {  
+                            number.classList.remove("invalid");
+                            number.classList.add("valid");
+                        } else {
+                            number.classList.remove("valid");
+                            number.classList.add("invalid");
+                        }
+                        
+                        // Validate length
+                        if(myInput.value.length >= 8) {
+                            length.classList.remove("invalid");
+                            length.classList.add("valid");
+                        } else {
+                            length.classList.remove("valid");
+                            length.classList.add("invalid");
+                        }
+                        }
+                    </script>
+
+                    <button class="button" style="vertical-align:middle"><span>Submit </span></button>
+                </form>
+            </div>
+
+        <div id="message">
+          <h3>Password must contain the following:</h3>
+          <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+          <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+          <p id="number" class="invalid">A <b>number</b></p>
+          <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+        </div>
+                        
+
+
+            <div id="footer">
+                <div class="bottom_addr">&copy; 2012 Simple PHP Polling System. All Rights Reserved</div>
+            </div>
+        </div>
+    </body>
+</html>
