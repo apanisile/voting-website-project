@@ -48,9 +48,34 @@
             }
 
             /* Float cancel and signup buttons and add an equal width */
-            .cancelbtn, .signupbtn {
+            .cancelbtn, .registerbtn {
             float: left;
             width: 50%;
+            }
+
+            .registerbtn span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+            }
+
+            .registerbtn span:after {
+              content: '\00bb';
+              position: absolute;
+              opacity: 0;
+              top: 0;
+              right: -20px;
+              transition: 0.5s;
+            }
+
+            .registerbtn:hover span {
+              padding-right: 25px;
+            }
+
+            .registerbtn:hover span:after {
+              opacity: 1;
+              right: 0;
             }
 
             /* Add padding to container elements */
@@ -118,11 +143,12 @@
                         content: "✖";
             }              
         </style>
-        <script>
+        
+        <!--<script>
                 function openWin() {
                 window.open("vote.html");
                 }
-            </script>
+            </script>-->
     </head>
     <body>
       
@@ -145,7 +171,7 @@
                     <meta name="viewport" content="width=device-width, initial-scale=1">
         
 
-<form action="registration.php" method="POST">
+<form action="registration.php" method="post">
   <div class="container">
         <h1>Sign Up</h1>
         <p>Please fill in this form to create an account.</p>
@@ -154,7 +180,7 @@
         <label for="name"><b>Full Name: </b></label>
         <input type="text" placeholder="Enter Full name" name="usrname" required>
 
-        <label for="Matric Number"><b>Matric Number:</b></label>
+        <label for="matric"><b>Matric No:</b></label>
         <input type="text" placeholder="Matric Number" name="matric" required>
 
 
@@ -261,7 +287,7 @@
 
         <div class="clearfix">
           <button type="button" class="cancelbtn">Cancel</button>
-          <button name="submit" type="submit" class="submit" onclick="openWin()">Register me</button>
+          <button name="submit" type="submit" class="registerbtn"><a href="vote.html" class="next"><span>Register me</span></a></button>
           
         </div>
 
