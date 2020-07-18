@@ -1,6 +1,6 @@
 <?php
 $matric = $_POST['matric'];
-$usrname = $_POST['username'];
+$usrname = $_POST['usrname'];
 $email = $_POST['email'];
 $gender = $_POST['gender'];
 $department = $_POST['department'];
@@ -19,17 +19,35 @@ if(!empty(matric) || !empty(usrname) || !empty(email) ||
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } else { 
-        $sql = "INSERT INTO Users (matric, fullname, email)
-        VALUES ($matric, $usrname, $email)";
+        $SELECT = "SELECT matric From user Where matric = ? Limit = 1";
+        $sql = "INSERT INTO users (matric, username, email, gender, department, psw) 
+        VALUES (?, ?, ?, ?, ?, ?)";
 
-        if ($conn->query($sql) === TRUE) {
+        //Prepare statement
+        $stmt = $conn->prepare($SELECT);
+        $stmt->bind_param("i", $matric);
+        $stmt-> execute();
+        $stmt->bind_result($matric);
+        $stmt->store_result();
+        $rnum = $stmt -> num_rows;
+
+        if($rnum==0){
+            $stmt->close();
+
+            $stmt = $conn->prepare($INSERT);
+            $stmt->bind_param("isssss", $matric, $usrname, $email, $gender, $department, $psw);
+            $stmt->execute();
             echo "New record created successfully";
+
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
+        $stmt->close();
+        $conn->close();
     }
 } else {
     echo "All fields are required";
+    die();
 }
 
 ?>
