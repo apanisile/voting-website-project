@@ -145,7 +145,7 @@
                     <meta name="viewport" content="width=device-width, initial-scale=1">
         
 
-<form method="post" name="myemailform" action="signin.php">
+<form action="signin.php" method="POST" name="myemailform">
   <div class="container">
         <h1>Sign Up</h1>
         <p>Please fill in this form to create an account.</p>
@@ -261,10 +261,8 @@
 
         <div class="clearfix">
           <button type="button" class="cancelbtn">Cancel</button>
-          <button type="submit" class="submit" onclick="openWin()">Sign Up</button>
-          <?php
-                            include "signin.php";
-        ?>
+          <button name="save" type="submit" class="submit" onclick="openWin()">Register me</button>
+          
         </div>
 
   </div>

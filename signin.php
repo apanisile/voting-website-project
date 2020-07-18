@@ -14,8 +14,8 @@ if ($conn->connect_error) {
 
 
   // define variables and set to empty values
-  $nameErr = $emailErr = $genderErr = $departmentErr = $matric = "";
-  $name = $email = $gender = $comment = $department = $matric = "";
+  $usrnameErr = $emailErr = $genderErr = $departmentErr = $matric = "";
+  $usrname = $email = $gender = $department = $matric = "";
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["usrname"])) {
@@ -57,6 +57,12 @@ if ($conn->connect_error) {
       $gender = test_input($_POST["gender"]);
     }
 
+    if (empty($_POST["psw"])) {
+      $genderErr = "Input your password";
+    } else {
+      $psw2 = test_input($_POST["psw"]);
+    }
+
     if (empty($_POST["psw2"])) {
       $genderErr = "Please repeat your password";
     } else {
@@ -74,7 +80,7 @@ if ($conn->connect_error) {
 ?>
 
 <?php
-if(isset($_POST['submit'])){
+if(isset($_POST['save'])){
   //Fetching variables of the form which travels in the URL
   $usrname = $_POST['usrname'];
   $gender =$_POST['gender'];
@@ -96,12 +102,29 @@ if(isset($_POST['submit'])){
       
 }
 
-$sql = "INSERT INTO MyGuests (matric, fullname, email)
+$sql = "INSERT INTO Users (matric, fullname, email)
 VALUES ($matric, $usrname, $email)";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
+}
+?>
+
+<?php
+  extract($_POST);
+  if(esset($save)){
+  //To check user already exists or not
+  $sql=mysql_query("select email from userdetails where email='$email'");
+  $return=mysql_num_rows($sql);
+  //if $return returns true value it means user's email already exists
+  if($return){
+    $msg="<font color='red'>".ucfirst($e)."already exists choose another email</font>";
+  } else {
+    $query="insert into userdetails values('$matric','$usrname','$email','$psw','$m','$gender', '$department')";
+    mysql_query($query);
+    $msg= "<font color='blue'>Your data saved</font>";
+  }
 }
 ?>
