@@ -1,4 +1,7 @@
 <?php
+include 'connect.php';
+include 'connect1.php';
+
 $matric = $_POST['matric'];
 $usrname = $_POST['usrname'];
 $email = $_POST['email'];
@@ -19,7 +22,7 @@ if(!empty(matric) || !empty(usrname) || !empty(email) ||
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } else { 
-        $SELECT = "SELECT matric From user Where matric = ? Limit = 1";
+        $SELECT = "SELECT matric From users Where matric = ? Limit = 1";
         $sql = "INSERT INTO users (matric, username, email, gender, department, psw) 
         VALUES (?, ?, ?, ?, ?, ?)";
 
