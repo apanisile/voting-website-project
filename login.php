@@ -1,10 +1,14 @@
+<?php
+        include 'connect.php';
+        echo "Connected Successfully";
+?>
 
 <?php
 if(isset($_POST['submit'])){
 		// Fetching variables of the form which travels in URL
-		$usrname = $_POST['usrname'];
+		$username = $_POST['username'];
 		$psw = $_POST['password'];
-		if($usrname !='' && $psw !='')
+		if($username !='' && $psw !='')
 		{
 			//  To redirect form on a particular page
 			header("vote.html");

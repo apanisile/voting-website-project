@@ -20,8 +20,3 @@ if ($conn->query($sql) === TRUE) {
 }
 
 ?>
-
-
-<?php
-echo"Great Work!!!";
-?>
