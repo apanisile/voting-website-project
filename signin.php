@@ -26,6 +26,7 @@
   gender enum('m','f') NOT NULL,
   department VARCHAR(30),
   psw VARCHAR(10) NOT NULL,
+  psw2 VARCHAR(10) NOT NULL,
   reg_date TIMESTAMP
   )";
 
@@ -44,28 +45,28 @@
   $fname = $lname = $email = $gender = $department = $matric = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      if (empty($_POST["username"])) {
-        $nameErr = "First Name is required";
+      if (empty($_POST["fname"])) {
+        $fnameErr = "First Name is required";
       } else {
-        $name = test_input($_POST["username"]);
+        $fname = test_input($_POST["fname"]);
           // check if name only contains letters and whitespace
-          if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-          $nameErr = "Only letters and white space allowed";
+          if (!preg_match("/^[a-zA-Z ]*$/",$fname)) {
+          $fnameErr = "Only letters and white space allowed";
           }
         }
 
       if (empty($_POST["lname"])) {
-        $nameErr = "Last name is required";
+        $lnameErr = "Last name is required";
       } else {
-        $name = test_input($_POST["username"]);
+        $lname = test_input($_POST["lname"]);
           // check if name only contains letters and whitespace
-          if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-          $nameErr = "Only letters and white space allowed";
+          if (!preg_match("/^[a-zA-Z ]*$/",$lname)) {
+          $lnameErr = "Only letters and white space allowed";
           }
         }
 
       if (empty($_POST["matric"])) {
-        $matric = "";
+        $matricErr = "Please enter matric number: ";
       } else {
         $matric = test_input($_POST["matric"]);
       }
@@ -81,7 +82,7 @@
       }
         
       if (empty($_POST["department"])) {
-        $department = "";
+        $departmentErr = "Select a department";
       } else {
         $department = test_input($_POST["department"]);
       }
@@ -93,13 +94,19 @@
       }
 
       if (empty($_POST["psw"])) {
-        $genderErr = "Input your password";
+        $pswErr = "Input your password";
       } else {
-        $psw2 = test_input($_POST["psw"]);
+        $psw = test_input($_POST["psw"]);
       }
 
+      if (empty($_POST["psw2"])) {
+        $pswErr = "I";
+      } else {
+        $psw = test_input($_POST["psw2"]);
+      }
 
     }
+
 
     function test_input($data) {
       $data = trim($data);
@@ -111,13 +118,14 @@
 
 
 <?php
-  $sql = "INSERT INTO users (fname, lname,  matric, email, department, gender) VALUES ( '$fname', '$fname', '$matric', '$email', '$department', '$gender')";
+  $sql = "INSERT INTO users (id, fname, lname,  matric, email, department, gender, psw) VALUES ('', '$fname', '$lname', '$matric', '$email', '$department', '$gender', '$psw')";
 
   if ($conn->query($sql) === TRUE) {
       echo "New record created successfully";
   } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
   }
+
 
 $conn->close();
 ?>
